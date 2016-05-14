@@ -46,24 +46,31 @@ public class MainClass {
 
             // PLAYERS ACTION
             if(choice == 1){
+                System.out.println(player.getName()+" tried to attack.");
                 player.attack(opponent);
+                
             }
             else if(choice == 2){
+                System.out.println(player.getName()+" tried to recharge.");
                 player.recharge();
             }
             else if(choice == 3){
+                System.out.println(player.getName()+" tried to heal.");
                 player.heal();
             }
 
             choice = (int)((Math.random() * 100) % 3) + 1;
             // OPPONENT ACTION
             if(choice == 1){
+                System.out.println(opponent.getName()+" tried to attack.");
                 opponent.attack(player);
             }
             else if(choice == 2){
+                System.out.println(opponent.getName()+" tried to recharge.");
                 opponent.recharge();
             }
             else if(choice == 3){
+                System.out.println(opponent.getName()+" tried to heal.");
                 opponent.heal();
             }
 

@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.pewpew.model;
 
 import com.pewpew.interfaces.Player;
@@ -11,7 +10,7 @@ import com.pewpew.interfaces.Player;
  *
  * @author cicctfac1
  */
-public class PlayerImpl implements Player{
+public class PlayerImpl implements Player {
 
     private String name;
     private int life;
@@ -47,10 +46,36 @@ public class PlayerImpl implements Player{
         this.name = name;
     }
 
+    public void attack(PlayerImpl opponent) {
+        if(mana>0){
+            mana-=1;
+            opponent.setLife(opponent.getLife()-1);
+            System.out.println("Damage. Life down!");
+        }else{
+            System.out.println("Not enough mana.");
+        }
+    }
 
+    public void recharge() {
+        System.out.println("Power up!");
+        mana += 1;
+    }
 
+    public void heal() {
+        if (mana > 0) {
+            mana -= 1;
+            life += 1;
+            System.out.println("Healed. Life up!");
+        } else {
+            System.out.println("Not enough mana.");
+        }
+    }
 
-
-
+    @Override
+    public String toString() {
+        return getName() + " ::::: Life = " + getLife() + ", Mana =" + getMana();
+    }
+    
+    
 
 }
